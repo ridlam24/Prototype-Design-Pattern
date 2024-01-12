@@ -20,4 +20,6 @@ public abstract class Duck extends Actor implements Prototype
     public String clone() {
         return "";
     }
+    
+    public abstract void walk(int speed);
 }

@@ -4,4 +4,6 @@ comment0.text=\r\n\ Write\ a\ description\ of\ class\ Duck_Fast\ here.\r\n\ \r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Act\ -\ do\ whatever\ the\ Duck_Fast\ wants\ to\ do.\ This\ method\ is\ called\ whenever\r\n\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n
-numComments=2
+comment2.params=speed
+comment2.target=void\ walk(int)
+numComments=3

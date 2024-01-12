@@ -16,4 +16,8 @@ public class Duck_Slow extends Duck
     {
         // Add your action code here.
     }
+    
+    public void walk(int speed) {
+        
+    }
 }
