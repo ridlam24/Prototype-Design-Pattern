@@ -6,5 +6,5 @@
  */
 public interface Prototype  
 {
-    public String clone();
+    public Duck clone();
 }
