@@ -10,4 +10,6 @@ comment3.params=duck_fast
 comment3.target=Duck_Fast(Duck_Fast)
 comment4.params=
 comment4.target=Duck\ clone()
-numComments=5
+comment5.params=
+comment5.target=void\ removeDucks()
+numComments=6

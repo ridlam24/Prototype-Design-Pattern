@@ -14,18 +14,21 @@ public abstract class Duck extends Actor implements Prototype
      */
     public void act()
     {
-        // Add your action code here.
+        // Add your action code here
     }
     
     public abstract Duck clone();
+    public abstract void removeDucks();
     
     public void walk(int speed) {
         move(speed);
-    }
-    
-    public void spawnRandom(int rate, Duck duck) {
-        if (Greenfoot.getRandomNumber(20) < rate) {
-            getWorld().addObject(duck, Greenfoot.getRandomNumber(getWorld().getWidth()), Greenfoot.getRandomNumber(getWorld().getHeight()));
+        if (Greenfoot.getRandomNumber(100) < 5) {
+            turn(Greenfoot.getRandomNumber(180)-90);
+        }
+        
+        if (isAtEdge()) {
+            turn(180);
+            move(2);
         }
     }
 }

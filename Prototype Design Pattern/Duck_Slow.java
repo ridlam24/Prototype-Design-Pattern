@@ -8,8 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Duck_Slow extends Duck
 {
-    private int speed = 5;
+    private int speed = 1;
     private int rate = 10;
+    
+    private GreenfootImage image = new GreenfootImage("Duck_Slow.png");
     
     /**
      * Act - do whatever the Duck_Fast wants to do. This method is called whenever
@@ -18,18 +20,44 @@ public class Duck_Slow extends Duck
     public void act()
     {
         walk(speed);
-        spawnRandom(rate, new Duck_Slow());
+        
+        if (Greenfoot.mouseClicked(this)) {
+            int cloneNum = Greenfoot.getRandomNumber(4) + 1;
+            for(int i = 0; i < cloneNum; i ++) {
+                clone();
+            }
+        }
+        
+        if (((MyWorld) getWorld()).tooManyDucks()) {
+            removeDucks();
+        }
     }
     
     public Duck_Slow() {
-        
+        image.scale(image.getWidth()*2, image.getHeight()*2);
+        setImage(image);
     }
     
     public Duck_Slow(Duck_Slow duck_slow) {
-        
+        setImage(duck_slow.getImage());
     }
     
     public Duck clone() {
-        return new Duck_Slow(this);
+        Duck_Slow duck = new Duck_Slow(this);
+        
+        int xPos = Greenfoot.getRandomNumber(getWorld().getWidth());
+        int yPos = Greenfoot.getRandomNumber(getWorld().getHeight());
+        
+        getWorld().addObject(duck, xPos, yPos);
+        ((MyWorld) getWorld()).incrementDucks(1);
+        //getWorld().removeObject(this);
+        return duck;
+    }
+    
+    public void removeDucks() {
+        if (Greenfoot.getRandomNumber(100) < 1) {
+            ((MyWorld) getWorld()).incrementDucks(-1);
+            getWorld().removeObject(this);
+        }
     }
 }
