@@ -20,6 +20,14 @@ public abstract class Duck extends Actor implements Prototype
     public abstract Duck clone();
     public abstract void removeDucks();
     
+    public void addDucks(Duck duck) {        
+        int xPos = Greenfoot.getRandomNumber(getWorld().getWidth());
+        int yPos = Greenfoot.getRandomNumber(getWorld().getHeight());
+        
+        getWorld().addObject(duck, xPos, yPos);
+        ((MyWorld) getWorld()).incrementDucks(1);
+    }
+    
     public void walk(int speed) {
         move(speed);
         if (Greenfoot.getRandomNumber(100) < 5) {

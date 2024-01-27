@@ -21,15 +21,16 @@ public class Duck_Slow extends Duck
     {
         walk(speed);
         
+        if (((MyWorld) getWorld()).tooManyDucks()) {
+            removeDucks();
+        }
+        
         if (Greenfoot.mouseClicked(this)) {
             int cloneNum = Greenfoot.getRandomNumber(4) + 1;
             for(int i = 0; i < cloneNum; i ++) {
-                clone();
+                addDucks(clone());
             }
-        }
-        
-        if (((MyWorld) getWorld()).tooManyDucks()) {
-            removeDucks();
+            getWorld().removeObject(this);
         }
     }
     
@@ -43,15 +44,7 @@ public class Duck_Slow extends Duck
     }
     
     public Duck clone() {
-        Duck_Slow duck = new Duck_Slow(this);
-        
-        int xPos = Greenfoot.getRandomNumber(getWorld().getWidth());
-        int yPos = Greenfoot.getRandomNumber(getWorld().getHeight());
-        
-        getWorld().addObject(duck, xPos, yPos);
-        ((MyWorld) getWorld()).incrementDucks(1);
-        //getWorld().removeObject(this);
-        return duck;
+        return new Duck_Slow(this);
     }
     
     public void removeDucks() {
