@@ -8,8 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Duck_Fast extends Duck
 {   
-    private int speed = 2;
-    private int rate = 5;
+    private int speed;
     
     private GreenfootImage image = new GreenfootImage("Duck_Fast.png");
     
@@ -37,10 +36,12 @@ public class Duck_Fast extends Duck
     public Duck_Fast() {
         image.scale(image.getWidth()*2, image.getHeight()*2);
         setImage(image);
+        speed = Greenfoot.getRandomNumber(3)+3;
     }
     
     public Duck_Fast(Duck_Fast duck_fast) {
         setImage(duck_fast.getImage());
+        speed = duck_fast.speed;
     }
     
     public Duck clone() {

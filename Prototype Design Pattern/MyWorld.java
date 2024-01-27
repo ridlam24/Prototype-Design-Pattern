@@ -42,10 +42,6 @@ public class MyWorld extends World
             addObject(new Duck_Slow(), xPos, yPos);
             incrementDucks(1);
         }
-        
-        /*else if (num < 15) {
-            addObject(new Duck_Large(), xPos, yPos);
-        }*/
     }
     
     public void display() {
