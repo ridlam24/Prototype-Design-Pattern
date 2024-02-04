@@ -11,6 +11,7 @@ public class Duck_Fast extends Duck
     private int speed;
     
     private GreenfootImage image = new GreenfootImage("Duck_Fast.png");
+    private Duck_Fast clone;
     
     /**
      * Act - do whatever the Duck_Fast wants to do. This method is called whenever
@@ -26,9 +27,11 @@ public class Duck_Fast extends Duck
         
         if (Greenfoot.mouseClicked(this)) {
             int cloneNum = Greenfoot.getRandomNumber(4) + 1;
+            clone = new Duck_Fast(this);
             for(int i = 0; i < cloneNum; i ++) {
                 addDucks(clone());
             }
+            ((MyWorld) getWorld()).incrementDucks(-1);
             getWorld().removeObject(this);
         }
     }
@@ -45,7 +48,7 @@ public class Duck_Fast extends Duck
     }
     
     public Duck clone() {
-        return new Duck_Fast(this);
+        return clone;
     }
     
     public void removeDucks() {
