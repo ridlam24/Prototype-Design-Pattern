@@ -6,8 +6,11 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public abstract class Duck extends Actor implements Prototype
+public abstract class Duck extends Actor implements IPrototype
 {
+    protected int speed;
+    protected GreenfootImage image;
+    
     /**
      * Act - do whatever the Duck wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
